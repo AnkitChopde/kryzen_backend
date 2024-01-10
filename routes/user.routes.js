@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 const userRoutes = express.Router();
 
 
-userRoutes.post("/addUser",async(req,res)=>{
+userRoutes.post("/register",async(req,res)=>{
     const {username,password} = req.body;
     try{
       if(req.body.username && req.body.password){
