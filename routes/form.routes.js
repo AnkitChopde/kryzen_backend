@@ -15,7 +15,7 @@ res.status(400).send({msg:e.message})
 
 formRoutes.post('/addFormDetails',upload.single("photo"),async(req,res)=>{
     try{
-       const photoPath = req.file.path;
+       const photoPath = req.file;
        console.log(photoPath)
       if( 
         req.body.name &&
