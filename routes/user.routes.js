@@ -33,7 +33,7 @@ userRoutes.post("/login",async (req,res)=>{
           const preCheck = await userModel.findOne({username})
           if(preCheck){
             const hashCheck = await bcrypt.compare(password,preCheck.password);
-            const token =  jwt.sign({"userId":preCheck._id},"kryzen",{expiresIn:"8h"})
+            const token =  jwt.sign({"userId":preCheck._id},"kryzen",{expiresIn:"7d"})
             
             if(hashCheck){
               res.status(200).send({msg:"User logged in Successful!", status:"success",token})
