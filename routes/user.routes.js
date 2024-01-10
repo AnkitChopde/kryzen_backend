@@ -8,7 +8,7 @@ userRoutes.post("/register",async(req,res)=>{
     const {username,password} = req.body;
     try{
       if(req.body.username && req.body.password){
-        const preCheck = await userModel.findOne({username})
+        const preCheck = await userModel.find({username})
         if(!preCheck) {
             const hashedPassword = await bcrypt.hash(password,5)
             const newUser = new userModel({...req.body,password:hashedPassword})
