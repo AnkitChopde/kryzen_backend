@@ -15,7 +15,7 @@ res.status(400).send({msg:e.message})
 
 formRoutes.post('/addFormDetails',upload.single("photo"),async(req,res)=>{
     try{
-       const photoPath = req.file.path;
+       const photoPath = req.body.photo;
 
        const newFormDetails = new formModel({
         name:req.body.name,
