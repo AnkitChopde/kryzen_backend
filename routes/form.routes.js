@@ -15,7 +15,7 @@ res.status(400).send({msg:e.message})
 
 formRoutes.post('/addFormDetails',upload.single("photo"),async(req,res)=>{
     try{
-       const photoPath = req.file;
+       const photoPath = req.file.path;
        console.log(photoPath)
       if( 
         req.body.name &&
@@ -23,7 +23,7 @@ formRoutes.post('/addFormDetails',upload.single("photo"),async(req,res)=>{
         req.body.address &&
         photoPath
        ){
-        const newFormDetails = new formModel({
+        const newFormDetails =await new formModel({
             name:req.body.name,
             age:req.body.age,
             address:req.body.address,
