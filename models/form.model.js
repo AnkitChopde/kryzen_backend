@@ -12,10 +12,6 @@ const schema = mongoose.Schema({
     address:{
         type:String,
         required:true
-    },
-    photo:{
-        type:String,
-        required:true
     }
 })
 

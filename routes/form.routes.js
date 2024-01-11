@@ -13,21 +13,20 @@ res.status(400).send({msg:e.message})
 }
 });
 
-formRoutes.post('/addFormDetails',upload.single("photo"),async(req,res)=>{
+formRoutes.post('/addFormDetails',async(req,res)=>{
     try{
-       const photoPath = req.file.path;
-       console.log(photoPath)
+       
       if( 
         req.body.name &&
         req.body.age &&
-        req.body.address &&
-        photoPath
+        req.body.address 
+       
        ){
         const newFormDetails =await new formModel({
             name:req.body.name,
             age:req.body.age,
             address:req.body.address,
-            photo:photoPath
+           
            });
 
            await newFormDetails.save()
